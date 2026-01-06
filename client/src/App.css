@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+ form{
+  display: inline-block;
+  background-color: cadetblue;
+ }
+
+ form label{
+  display: inline-block;
+  width: 150px;
+ }
+
+ form div{
+  margin: 10px;
+ }
+
+ .profilePic{
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+ }
+
+ nav{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: yellow;
+ }
