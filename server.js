@@ -18,8 +18,16 @@ dotenv.config();
 app.use(express.static(path.join(__dirname, "./client/build")));
 
 
-app.get((req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+app.use((req, res) => {
+  res.sendFile(
+    path.resolve(__dirname, "client", "build", "index.html")
+  );
+});
+
+// PORT (Render safe)
+const PORT = process.env.PORT || 3333;
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
 
   const storage = multer.diskStorage({
@@ -157,9 +165,9 @@ app.post("/login",upload.none(),async(req,res)=>{
     }
   })
 
-  app.listen(process.env.PORT,()=>{
-    console.log(`Listening to port ${process.env.PORT}`)
-  })
+  // app.listen(process.env.PORT,()=>{
+  //   console.log(`Listening to port ${process.env.PORT}`)
+  // })
 
 let userSchema = new mongoose.Schema({
     firstName:String,
