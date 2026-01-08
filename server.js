@@ -5,16 +5,13 @@ const multer = require("multer");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const dotenv = require("dotenv");
+const path = require("path")
 dotenv.config();
 
   let app = express();
   app.use(cors());
   
   app.use('/profilePics', express.static('profilePics'));
-
- 
-
-
 
 // PORT (Render safe)
 const PORT = process.env.PORT || 3333;
@@ -161,6 +158,11 @@ app.post("/login",upload.none(),async(req,res)=>{
   // app.listen(process.env.PORT,()=>{
   //   console.log(`Listening to port ${process.env.PORT}`)
   // })
+
+  app.use(express.static(path.join(__dirname, "client/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
 
 let userSchema = new mongoose.Schema({
     firstName:String,
