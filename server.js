@@ -9,23 +9,16 @@ dotenv.config();
 
   let app = express();
   app.use(cors());
-  app.use(express.json());
-  app.use(express.urlencoded());
+  
   app.use('/profilePics', express.static('profilePics'));
 
-  const path = require("path");
-
-app.use(express.static(path.join(__dirname, "./client/build")));
+ 
 
 
-app.use((req, res) => {
-  res.sendFile(
-    path.resolve(__dirname, "client", "build", "index.html")
-  );
-});
 
 // PORT (Render safe)
 const PORT = process.env.PORT || 3333;
+
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });

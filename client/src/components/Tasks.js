@@ -11,7 +11,7 @@ function Tasks() {
         <TopNavigation/>
       <h1>Tasks</h1>
       <h1>{userDetails.firstName} {userDetails.lastName}</h1>
-      <img src={`/${userDetails.profilePic}`} alt='' className='profilePic'></img>
+      <img src={`http://localhost:3333/${userDetails.profilePic}`} alt='' className='profilePic'></img>
     </div>
   )
 }

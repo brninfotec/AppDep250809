@@ -23,7 +23,7 @@ function EditProfile() {
     emailInputRef.current.value = userDetails.email;
     ageInputRef.current.value = userDetails.age;
     mobileNoInputRef.current.value = userDetails.mobileNo;
-    setProfilePic(`/${userDetails.profilePic}`)
+    setProfilePic(`http://localhost:3333/${userDetails.profilePic}`)
     },[])
 
 
